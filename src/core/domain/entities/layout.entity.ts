@@ -12,6 +12,6 @@ export class LayoutEntity extends AggregateRoot<LayoutProps> {
     });
   }
   validate(): void {
-    // Thực hiện các kiểm tra dữ liệu cần thiết trong entity này
+    throw new Error("Method not implemented.");
   }
 }
