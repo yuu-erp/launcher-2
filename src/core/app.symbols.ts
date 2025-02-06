@@ -6,6 +6,6 @@ export const INFRASTRUCTURE = {
 };
 
 export const APPLICATION = {
-  GET_LAYOUT_CALCULATION_USE_CASE: Symbol.for("GetLayoutCalculationUseCase"),
-  LOAD_LAYOUT_CALCULATION_USE_CASE: Symbol.for("LoadLayoutCalculationUseCase"),
+  CALCULATION_USE_CASE: Symbol.for("CalculationInteractor"),
+  GET_CALCULATION_USE_CASE: Symbol.for("GetCalculationInteractor"),
 };

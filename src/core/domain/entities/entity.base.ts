@@ -1,13 +1,13 @@
 import { invariant, isEmpty } from "@techmely/utils";
 import type { MarkOptional } from "ts-essentials";
 
-import { UniqueEntityID } from "./unique-entity";
 import {
   ArgumentInvalidException,
   ArgumentNotProvidedException,
   ArgumentOutOfRangeException,
 } from "@core/exceptions";
 import { convertPropsToObject } from "@core/helpers";
+import { UniqueEntityID } from "./unique-entity";
 
 export interface BaseEntityProps {
   id: UniqueEntityID;

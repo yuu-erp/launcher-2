@@ -1,10 +1,11 @@
+import { ILayoutCalculation } from "@core/infrastructure/layout-calculation/layout-calculation.type";
+import { GetCalculationInPort } from "../port/get-calculation.in-port";
+import { inject, injectable } from "inversify";
 import { INFRASTRUCTURE } from "@core/app.symbols";
 import { type LayoutCalculationPort } from "@core/infrastructure/layout-calculation/layout-calculation.port";
-import { ILayoutCalculation } from "@core/infrastructure/layout-calculation/layout-calculation.type";
-import { inject, injectable } from "inversify";
 
 @injectable()
-export class GetLayoutCalculationUseCase {
+export class GetCalculationInteractor implements GetCalculationInPort {
   constructor(
     @inject(INFRASTRUCTURE.LAYOUT_CALCULATION_SERVICE)
     private readonly layoutCalculationPort: LayoutCalculationPort

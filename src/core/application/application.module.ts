@@ -1,8 +1,12 @@
 import { BaseModule } from "@core/infrastructure/container";
 import { interfaces } from "inversify";
-import { GetLayoutCalculationUseCase } from "./use-cases/layout-calculation/get-layout-calculation.use-case";
-import { LoadLayoutCalculationUseCase } from "./use-cases/layout-calculation/load-layout-calculation.use-case";
 import { APPLICATION } from "@core/app.symbols";
+import {
+  CalculationInPort,
+  CalculationInteractor,
+  GetCalculationInPort,
+  GetCalculationInteractor,
+} from "./use-cases/layout-calculation";
 
 export class ApplicationModule extends BaseModule {
   constructor() {
@@ -12,18 +16,18 @@ export class ApplicationModule extends BaseModule {
   }
 
   public init(bind: interfaces.Bind): void {
-    this.getLayoutCalculationUseCase(bind);
-    this.loadLayoutCalculationUseCase(bind);
+    this.getCalculationUseCase(bind);
+    this.calculationUseCase(bind);
   }
 
-  private getLayoutCalculationUseCase(bind: interfaces.Bind): void {
-    bind<GetLayoutCalculationUseCase>(
-      APPLICATION.GET_LAYOUT_CALCULATION_USE_CASE
-    ).to(GetLayoutCalculationUseCase);
+  private getCalculationUseCase(bind: interfaces.Bind): void {
+    bind<GetCalculationInPort>(APPLICATION.GET_CALCULATION_USE_CASE).to(
+      GetCalculationInteractor
+    );
   }
-  private loadLayoutCalculationUseCase(bind: interfaces.Bind): void {
-    bind<LoadLayoutCalculationUseCase>(
-      APPLICATION.LOAD_LAYOUT_CALCULATION_USE_CASE
-    ).to(LoadLayoutCalculationUseCase);
+  private calculationUseCase(bind: interfaces.Bind): void {
+    bind<CalculationInPort>(APPLICATION.CALCULATION_USE_CASE).to(
+      CalculationInteractor
+    );
   }
 }
