@@ -1,10 +1,6 @@
-export enum Device {
-  MOBILE = "MOBILE",
-  TABLET = "TABLET",
-  DESKTOP = "DESKTOP",
-}
+import { Device } from "../enums";
 
-export interface ILayoutCalculation {
+export interface LayoutProps {
   device: Device;
   screenCheckPoint: number;
   heightStatusBar: number;
